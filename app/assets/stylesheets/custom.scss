@@ -92,8 +92,22 @@ p {
   @include box-sizing;
 }
 
-
+.jumbotron, h1 {
+  padding-bottom: 20px;
+  margin-top: -10px;
+}
 /* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
 
 #error_explanation {
   color: red;
