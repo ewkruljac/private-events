@@ -1,0 +1,11 @@
+<% provide(:title, "Party Info") %>
+
+<h1>Check out this event at <%= @event.location %>!</h1>
+
+<p><%= @event.date %></p>
+<p><%= @event.description %></p>
+
+<%= link_to "Edit", edit_event_path(@event) if @event.user == current_user %>
+
+<h3>Who's Going?</h3>
+<p>A List of attendees</p>

@@ -1,0 +1,18 @@
+<%= form_for(@event) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, placeholder: "Describe your party..." %>
+  </div>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+
+  <%= f.label :date %>
+  <%= f.datetime_field :date %>
+
+      
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

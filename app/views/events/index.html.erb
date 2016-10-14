@@ -1,0 +1,17 @@
+<% provide(:title, "Parties") %>
+
+<h1>Party List</h1>
+
+<%= link_to "Create a new party!", new_event_path %>
+
+<%= will_paginate %>
+
+<ol>
+  <% @events.each do |e| %>
+    <li><%= link_to e.description, e %> <!-- link to the party show page -->
+      <p>Hosted by: <%= link_to e.user.name.capitalize, e.user %></p>
+    </li>
+  <% end %>
+</ol>
+
+<%= will_paginate %>

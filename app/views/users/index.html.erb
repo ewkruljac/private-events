@@ -1,5 +1,15 @@
-<% @users.each do |e| %>
-<ul>
-  <li><%= e.name %></li>
+<% provide(:title, "Party Animals") %>
+
+<h1>All Party Animals</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <% @users.each do |e| %>
+    <li>
+      <%= link_to e.name.capitalize, e %>
+    </li>
+  <% end %>
 </ul>
-<% end %>
+
+<%= will_paginate %>

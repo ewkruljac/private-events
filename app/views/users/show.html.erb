@@ -1,1 +1,14 @@
-<h1><%= @user.name %>, <%= @user.email %></h1>
+<% provide(:title, current_user.name.capitalize) %>
+
+<h1><%= "#{@user.name.capitalize}'s Events" %></h1>
+
+<div class="col-md-8">
+  <% if @user.events.any? %>
+    <ol class="events">
+      <% @user.events.each do |e| %>
+        <li><%= link_to e.description, e %></li>
+      <% end %>
+    </ol>
+    <%= will_paginate @events %>
+  <% end %>
+</div>
