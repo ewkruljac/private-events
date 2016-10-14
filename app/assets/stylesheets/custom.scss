@@ -94,7 +94,7 @@ p {
 }
 
 .bg {
-  background: url('party3.jpg') no-repeat center center;
+  background: asset-data-url('party3.jpg') no-repeat center center;
   position: fixed;
   width: 100%;
   height: 100%;
