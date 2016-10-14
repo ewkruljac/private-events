@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
     if @event.save
       flash[:success] = "Event created!"
-      redirect_to root_url
+      redirect_to events_path
     else
       render root_url
     end
@@ -59,7 +59,7 @@ class EventsController < ApplicationController
 #----------
 
     def correct_user
-      @user = User.find(params[:id])
+      @user = Event.find(params[:id]).user
       redirect_to(root_url) unless current_user?(@user)
     end
 end

@@ -2,14 +2,14 @@
   <%= render 'shared/error_messages', object: f.object %>
 
   <div class="field">
-    <%= f.label :description %>
+    <%= f.label :description, class: 'form-control' %>
     <%= f.text_area :description, placeholder: "Describe your party..." %>
   </div>
 
-  <%= f.label :location %>
+  <%= f.label :location, class: 'form-control' %>
   <%= f.text_field :location %>
 
-  <%= f.label :date %>
+  <%= f.label :date, class: 'form-control' %>
   <%= f.datetime_field :date %>
 
       

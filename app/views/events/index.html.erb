@@ -1,17 +1,23 @@
 <% provide(:title, "Parties") %>
 
-<h1>Party List</h1>
+<h1 class="top-20">Party List</h1><hr>
 
-<%= link_to "Create a new party!", new_event_path %>
+<div class="container">
+  <div class="col-md-6 col-md-offset-1">
+    <%= will_paginate %>
 
-<%= will_paginate %>
+    <ul class="users list-group">
+      <% @events.each do |e| %>
+        <li class="list-group-item indent-20"><%= link_to e.description, e, class: "party-link" %>
+          <p class="indent-40">Hosted by: <%= link_to e.user.name.capitalize, e.user %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-<ol>
-  <% @events.each do |e| %>
-    <li><%= link_to e.description, e %> <!-- link to the party show page -->
-      <p>Hosted by: <%= link_to e.user.name.capitalize, e.user %></p>
-    </li>
-  <% end %>
-</ol>
+  <div class="col-md-4">
+    <%= link_to "Create a new party!", new_event_path, class: "btn btn-primary pull-right" %>
+  </div>
+</div>
 
 <%= will_paginate %>

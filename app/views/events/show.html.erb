@@ -1,11 +1,26 @@
 <% provide(:title, "Party Info") %>
 
-<h1>Check out this event at <%= @event.location %>!</h1>
+<br>
+<h1><%= "#{@event.user.name.capitalize}'s" %> party at <%= @event.location %>!</h1><hr>
 
-<p><%= @event.date %></p>
-<p><%= @event.description %></p>
 
-<%= link_to "Edit", edit_event_path(@event) if @event.user == current_user %>
+<div class="container">
+  <div class="col-md-6">
+    <br>
+    <ul class="users list-group">
+      <li><strong>When:</strong> <%= @event.date.strftime("%m/%d/%Y at %I:%M%p") %></li>
+      <li><strong>Location:</strong> <%= @event.location %></li>
+      <li><strong>Party Description:</strong> <%= @event.description %></li>
+    </ul>
 
-<h3>Who's Going?</h3>
-<p>A List of attendees</p>
+    <%= link_to "Edit Event", edit_event_path(@event), class: "btn btn-primary top-20" if @event.user == current_user %>
+  </div>
+
+  <div class="col-md-4 col-md-offset-1">
+    <h4>Who's Coming?</h4>
+    <ul class="users">
+      <li>List of attendees</li>
+    </ul>
+  </div>
+
+</div>
